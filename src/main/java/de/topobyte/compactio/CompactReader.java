@@ -147,7 +147,7 @@ public abstract class CompactReader
 	{
 		long i1 = readInt();
 		long i2 = readInt();
-		return (i1 << 32) | i2;
+		return (i1 << 32) | (i2 & 0xFFFFFFFFL);
 	}
 
 }
