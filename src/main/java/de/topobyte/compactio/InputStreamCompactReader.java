@@ -52,4 +52,16 @@ public class InputStreamCompactReader extends CompactReader
 		return r;
 	}
 
+	@Override
+	public void skip(long len) throws IOException
+	{
+		long remaining = len;
+		while (remaining > 0) {
+			long skipped = is.skip(remaining);
+			if (skipped > 0) {
+				remaining -= skipped;
+			}
+		}
+	}
+
 }

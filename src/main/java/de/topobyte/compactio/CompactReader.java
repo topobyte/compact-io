@@ -66,6 +66,8 @@ public abstract class CompactReader
 	public abstract int read(byte[] buffer, int off, int len)
 			throws IOException;
 
+	public abstract void skip(long len) throws IOException;
+
 	// Adapted from the protocol buffers library. See copyright above
 	public long readVariableLengthUnsignedInteger() throws IOException
 	{
