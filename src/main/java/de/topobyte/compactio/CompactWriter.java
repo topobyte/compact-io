@@ -55,6 +55,7 @@
 package de.topobyte.compactio;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 public abstract class CompactWriter
 {
@@ -153,9 +154,11 @@ public abstract class CompactWriter
 		return 10;
 	}
 
+	private static final Charset CHARSET = Charset.forName("UTF-8");
+
 	public void writeString(String string) throws IOException
 	{
-		byte[] bytes = string.getBytes();
+		byte[] bytes = string.getBytes(CHARSET);
 		writeVariableLengthSignedInteger(bytes.length);
 		write(bytes);
 	}

@@ -106,7 +106,7 @@ public abstract class CompactReader
 		return (n >>> 1) ^ -(n & 1);
 	}
 
-	private static Charset charset = Charset.forName("UTF-8");
+	private static final Charset CHARSET = Charset.forName("UTF-8");
 
 	public String readString() throws IOException
 	{
@@ -116,7 +116,7 @@ public abstract class CompactReader
 		}
 		byte[] buffer = new byte[length];
 		readFully(buffer);
-		return new String(buffer, charset);
+		return new String(buffer, CHARSET);
 	}
 
 	public void readFully(byte[] buffer) throws IOException
